@@ -1,0 +1,15 @@
+question_id,category,answer,true_mark,predicted_mark,max_marks,error,exact_match,within_1,flagged_for_review
+Q1_photosynthesis,full,"Plants use light energy to turn carbon dioxide and water into glucose in their chloroplasts, using chlorophyll.",3,3,3,0,True,True,False
+Q1_photosynthesis,full,Photosynthesis happens in the leaves. Chlorophyll absorbs sunlight and the plant uses carbon dioxide and water to make its own food (glucose).,3,3,3,0,True,True,False
+Q1_photosynthesis,full,"The plant takes in CO2 and water, and with light energy from the sun it produces sugar. This happens in the chloroplast which has chlorophyll in it.",3,3,3,0,True,True,False
+Q1_photosynthesis,partial,Plants photosynthesise using sunlight to make glucose.,2,2,3,0,True,True,False
+Q1_photosynthesis,partial,The plant absorbs carbon dioxide and water from its surroundings to grow.,1,1,3,0,True,True,False
+Q1_photosynthesis,partial,Chlorophyll in the leaf captures light so the plant can make its food.,1,2,3,1,False,True,True
+Q1_photosynthesis,wrong,Plants get bigger because they drink water and grow towards the sun.,0,1,3,1,False,True,False
+Q1_photosynthesis,wrong,Plants eat soil to get nutrients and energy to survive.,0,0,3,0,True,True,False
+Q2_friction,full,"Static friction is greater than moving friction, so more force is needed to start than to keep the car moving at a steady speed where forces are balanced.",2,2,2,0,True,True,False
+Q2_friction,full,"Friction opposes the car starting to move and is stronger when the car is still. Once moving, a smaller force can overcome the friction and keep the speed steady.",2,2,2,0,True,True,False
+Q2_friction,partial,"There is more friction to overcome when the car is not yet moving, so a bigger force is needed at the start.",1,2,2,1,False,True,False
+Q2_friction,partial,"Once the car is moving, the forces are balanced so it stays at a steady speed with less force.",1,2,2,1,False,True,False
+Q2_friction,wrong,The engine is stronger at the start of the journey than later on.,0,0,2,0,True,True,True
+Q2_friction,wrong,The car uses more petrol when it starts moving.,0,0,2,0,True,True,False

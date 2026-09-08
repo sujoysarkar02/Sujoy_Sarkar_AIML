@@ -1,0 +1,77 @@
+{
+  "questions": [
+    {
+      "id": "Q1_photosynthesis",
+      "question": "Describe how a green plant makes its own food. (3 marks)",
+      "max_marks": 3,
+      "points": [
+        {
+          "id": "Q1_P1",
+          "description": "Names the process as photosynthesis, happening in the leaf/chloroplasts using chlorophyll",
+          "keywords": ["photosynthesis", "chlorophyll"],
+          "exemplar": "Photosynthesis takes place in the chloroplasts of leaf cells, which contain chlorophyll.",
+          "marks": 1
+        },
+        {
+          "id": "Q1_P2",
+          "description": "States the raw materials: carbon dioxide and water",
+          "keywords": ["carbon dioxide", "water"],
+          "exemplar": "The plant takes in carbon dioxide from the air and water from the soil.",
+          "marks": 1
+        },
+        {
+          "id": "Q1_P3",
+          "description": "States the product glucose is made using light energy",
+          "keywords": ["glucose", "light"],
+          "exemplar": "Using light energy, the plant converts these into glucose and releases oxygen.",
+          "marks": 1
+        }
+      ],
+      "demo_answers": [
+        {"text": "Plants use light energy to turn carbon dioxide and water into glucose in their chloroplasts, using chlorophyll.", "true_mark": 3}
+      ],
+      "test_answers": [
+        {"text": "Plants use light energy to turn carbon dioxide and water into glucose in their chloroplasts, using chlorophyll.", "true_mark": 3, "category": "full"},
+        {"text": "Photosynthesis happens in the leaves. Chlorophyll absorbs sunlight and the plant uses carbon dioxide and water to make its own food (glucose).", "true_mark": 3, "category": "full"},
+        {"text": "The plant takes in CO2 and water, and with light energy from the sun it produces sugar. This happens in the chloroplast which has chlorophyll in it.", "true_mark": 3, "category": "full"},
+        {"text": "Plants photosynthesise using sunlight to make glucose.", "true_mark": 2, "category": "partial"},
+        {"text": "The plant absorbs carbon dioxide and water from its surroundings to grow.", "true_mark": 1, "category": "partial"},
+        {"text": "Chlorophyll in the leaf captures light so the plant can make its food.", "true_mark": 1, "category": "partial"},
+        {"text": "Plants get bigger because they drink water and grow towards the sun.", "true_mark": 0, "category": "wrong"},
+        {"text": "Plants eat soil to get nutrients and energy to survive.", "true_mark": 0, "category": "wrong"}
+      ]
+    },
+    {
+      "id": "Q2_friction",
+      "question": "Explain why a car needs a bigger force to start moving from rest than it does to keep moving at a steady speed. (2 marks)",
+      "max_marks": 2,
+      "points": [
+        {
+          "id": "Q2_P1",
+          "description": "Identifies friction as the force opposing motion (static friction is larger)",
+          "keywords": ["friction", "force"],
+          "exemplar": "Static friction between the tyres and the road opposes the car starting to move, and static friction is larger than moving friction.",
+          "marks": 1
+        },
+        {
+          "id": "Q2_P2",
+          "description": "Explains that once moving, only a smaller force is needed to overcome (dynamic) friction and keep it at steady speed",
+          "keywords": ["steady speed", "balanced", "overcome"],
+          "exemplar": "Once the car is moving, a smaller force is needed to overcome friction and keep the resultant force at zero for a steady speed.",
+          "marks": 1
+        }
+      ],
+      "demo_answers": [
+        {"text": "Static friction is greater than moving friction, so more force is needed to start than to keep the car moving at a steady speed where forces are balanced.", "true_mark": 2}
+      ],
+      "test_answers": [
+        {"text": "Static friction is greater than moving friction, so more force is needed to start than to keep the car moving at a steady speed where forces are balanced.", "true_mark": 2, "category": "full"},
+        {"text": "Friction opposes the car starting to move and is stronger when the car is still. Once moving, a smaller force can overcome the friction and keep the speed steady.", "true_mark": 2, "category": "full"},
+        {"text": "There is more friction to overcome when the car is not yet moving, so a bigger force is needed at the start.", "true_mark": 1, "category": "partial"},
+        {"text": "Once the car is moving, the forces are balanced so it stays at a steady speed with less force.", "true_mark": 1, "category": "partial"},
+        {"text": "The engine is stronger at the start of the journey than later on.", "true_mark": 0, "category": "wrong"},
+        {"text": "The car uses more petrol when it starts moving.", "true_mark": 0, "category": "wrong"}
+      ]
+    }
+  ]
+}
