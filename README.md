@@ -1,4 +1,3 @@
-# Sujoy_Sarkar_AIML
 # CS Revise — Stage 2, Track E: Auto-Marking
 
 ## Contents
