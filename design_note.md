@@ -5,31 +5,7 @@ scoped to be genuinely buildable, not aspirational.
 
 ## Proposed flow
 
-```
-Student submits answer (web/app)
-        |
-        v
-Cloud function: "mark-answer"
-        |
-        |-- 1. Run the hybrid engine (keyword + TF-IDF) from auto_marker.py
-        |        -> fast, free, deterministic
-        |
-        |-- 2. Engine returns: mark, per-point breakdown, needs_human_review flag
-        |
-        |-- 3. IF needs_human_review is True (or the question type is
-        |       "explain"/"describe" rather than a short factual recall):
-        |       -> escalate to an LLM marking endpoint (e.g. Claude/GPT via API)
-        |          with the question, mark scheme, and answer, asking it to
-        |          confirm/adjust the mark and write feedback
-        |
-        v
-Student sees: mark + feedback (instantly for clear-cut cases,
-              within a few seconds for escalated cases)
-        |
-        v
-Sampled logging: every Nth answer, and every escalated/flagged answer,
-is stored for periodic human (teacher) spot-checking
-```
+![Alt text describing the diagram](path/to/pipeline_flow.png)
 
 ## Why hybrid-first, LLM-second
 
