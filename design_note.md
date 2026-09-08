@@ -5,7 +5,7 @@ scoped to be genuinely buildable, not aspirational.
 
 ## Proposed flow
 
-![Alt text describing the diagram](path/to/pipeline_flow.png)
+![Alt text describing the diagram](pipeline_flow.png)
 
 ## Why hybrid-first, LLM-second
 
