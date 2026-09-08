@@ -1,19 +1,7 @@
-"""
-run_tests.py
-------------
-Runs AutoMarker over every hand-written test answer in sample_questions.json,
-compares the predicted mark against the true (human-assigned) mark, and
-writes out a results CSV plus a plain-English accuracy summary.
-
-Run: python3 run_tests.py
-"""
-
 import csv
 import json
 from statistics import mean
-
 from auto_marker import AutoMarker, MarkScheme
-
 
 def main():
     with open("sample_questions.json") as f:
@@ -42,13 +30,13 @@ def main():
                 "flagged_for_review": result.needs_human_review,
             })
 
-    # -- write CSV -----------------------------------------------------
+    #write CSV
     with open("test_results.csv", "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
         writer.writeheader()
         writer.writerows(rows)
 
-    # -- summary stats ---------------------------------------------------
+    #summary stats
     n = len(rows)
     exact = sum(r["exact_match"] for r in rows)
     within1 = sum(r["within_1"] for r in rows)
@@ -69,7 +57,7 @@ def main():
     for cat, matches in by_category.items():
         print(f"  {cat:8s}: {sum(matches)}/{len(matches)} exact ({sum(matches)/len(matches):.0%})")
 
-    # -- print the mismatches so limitations can be reported honestly ----
+    #print the mismatches so limitations can be reported honestly
     print()
     print("Mismatches (predicted != true):")
     for r in rows:
