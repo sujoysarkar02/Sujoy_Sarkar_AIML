@@ -1,54 +1,24 @@
-"""
-auto_marker.py
---------------
-A hybrid auto-marking engine for short written answers (GCSE / 11+ style).
-
-Approach: "Rubric-Anchored Hybrid Scoring"
-  1. Keyword / concept matching  -> checks whether the specific idea a mark
-     point is looking for is present, using a small synonym list so that
-     answers don't need to use the exact wording of the mark scheme.
-  2. TF-IDF cosine similarity    -> a lightweight semantic check between the
-     student's answer and a short exemplar phrase for each mark point, to
-     catch correct ideas phrased in a way the keyword list didn't predict.
-  3. A mark point is awarded if EITHER signal clears its threshold, and the
-     "confidence" of that decision is recorded. Low-confidence / borderline
-     decisions are flagged for human review rather than silently marked.
-
-This intentionally avoids calling an external LLM API so it runs fully
-offline and free of cost -- see research_comparison.md for why, and
-design_note.md for how this would be swapped for an LLM-based grader in a
-production CS Revise integration.
-"""
-
 from __future__ import annotations
-
 import json
 import re
 from dataclasses import dataclass, field
 from typing import List, Dict, Any
-
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 
-# ---------------------------------------------------------------------------
-# Text normalisation helpers
-# ---------------------------------------------------------------------------
 
+# Text normalisation helpers
 _WORD_RE = re.compile(r"[a-z0-9']+")
 
 
 def normalise(text: str) -> str:
     return text.lower().strip()
 
-
 def tokenise(text: str) -> List[str]:
     return _WORD_RE.findall(text.lower())
 
 
-# A tiny hand-built synonym map so keyword matching survives common
-# rephrasings seen in GCSE/11+ answers. In production this would be
-# expanded (or replaced by embeddings) -- see research_comparison.md.
 SYNONYMS = {
     "increase": {"increase", "increases", "increasing", "rise", "rises", "grow", "grows", "higher"},
     "decrease": {"decrease", "decreases", "decreasing", "fall", "falls", "drop", "drops", "lower", "reduce", "reduces"},
@@ -67,11 +37,7 @@ def expand_keyword(keyword: str) -> set:
     key = keyword.lower().strip()
     return SYNONYMS.get(key, {key})
 
-
-# ---------------------------------------------------------------------------
 # Data model
-# ---------------------------------------------------------------------------
-
 @dataclass
 class MarkPoint:
     id: str
@@ -114,10 +80,7 @@ class MarkingResult:
     needs_human_review: bool
 
 
-# ---------------------------------------------------------------------------
 # Engine
-# ---------------------------------------------------------------------------
-
 class AutoMarker:
     """
     Usage:
@@ -131,7 +94,7 @@ class AutoMarker:
         self.semantic_threshold = semantic_threshold
         self.review_band = review_band
 
-    # -- keyword pass ------------------------------------------------------
+    #keyword pass
     def _keyword_hit(self, answer_tokens: List[str], answer_text: str, keywords: List[str]) -> bool:
         for kw in keywords:
             variants = expand_keyword(kw)
@@ -143,7 +106,7 @@ class AutoMarker:
                     return True
         return False
 
-    # -- semantic pass -------------------------------------------------------
+    #semantic pass
     def _semantic_score(self, answer_text: str, exemplar: str) -> float:
         if not answer_text.strip():
             return 0.0
@@ -215,13 +178,10 @@ class AutoMarker:
         return " ".join(lines)
 
 
-# ---------------------------------------------------------------------------
 # CLI demo
-# ---------------------------------------------------------------------------
-
 if __name__ == "__main__":
-    with open("sample_questions.json") as f:
-        data = json.load(f)
+  with open("sample_questions.json") as f:
+    data = json.load(f)
 
     q = data["questions"][0]
     scheme = MarkScheme.from_dict(q)
